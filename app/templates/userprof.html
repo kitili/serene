@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/edit.css')}}">
+{% endblock %}
+
+{% import 'bootstrap/wtf.html' as wtf%}
+
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="profile">
+        <div class = "image">
+          <img class = "rounded-circle" src="{{image}}" alt="">
+          </div>
+          <div>
+            <h1>{{current_user.username}}</h1>
+            <p class="mail">{{current_user.email}}</p>
+            <small>{{current_user.bio}}</small>
+          </div>
+      </div>
+      
+      <div class="edit">  
+        <h1>
+          Edit your profile
+        </h1>
+        <hr>
+        <div>
+          {{wtf.quick_form(form)}}
+        </div>
+      </div>
+  
+ 
+ 
+</div>
+
+ {% endblock %}

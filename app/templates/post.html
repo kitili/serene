@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<div class="container">
+  <div class="content">
+    <div class="head">
+      <h2>{{posts.title}}</h2>
+      <p>{{posts.content}}</p>
+      <small>{{posts.author.username}}</small>
+      <div>
+        <small>{{post.timestamp.strftime("%m/%d/%Y")}}</small>
+      </div>
+      <div>
+        <a href="{{url_for('main.delete', post_id = posts.id)}}"><button type = 'button'class = "btn btn-large btn-danger">Delete</button></a>
+      </div>
+     
+      <hr>
+</div>
+
+
+    {% endblock %}

@@ -1,0 +1,95 @@
+
+{% extends 'layout.html'%}
+{% block css%}
+<link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+{% endblock %}  
+  {% block content %}
+  <section id = "home">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h1>
+            SERENE is a place to read, write and network
+          </h1>
+          <p>
+            It's easy and free to post your thinking and connect with millions of readers.
+          </p>
+         <a href="{{url_for('main.write')}}"> <button class = 'btn btn-write'>Start Writing </button></a>
+  
+        </div>
+        <div class="col-md-5">
+          <img src="{{url_for('static', filename='/images/hero.jpg')}}" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+
+  <section id = "home">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h1 class = "text-center">
+           Read Below 
+          </h1>
+          <div class="content">
+            <div class="head">
+              <h3>Recommended For You</h3>
+              {% for post in posts %}
+              <h2>{{post.title}}</h2>
+              <p>{{post.content}}</p>
+              <small>{{post.author.username}}</small>
+              <div>
+                <small>{{post.timestamp.strftime("%m/%d/%Y")}}</small>
+              </div>
+              
+              <hr>
+              {% endfor %}
+            </div>
+          </div>
+  
+        </div>
+        <div class="col-md-5">
+         <h3 class = "text-center"> 
+           Discover
+         </h3>
+         <div class="cat-holder">
+          <div class = 'cats'>
+            <div class = 'one' >
+              <a href="{{url_for('main.account')}}">Programming</a>
+             </div>
+             <div  class = 'one'>
+               <a href="{{url_for('main.account')}}">JavaScript</a>
+              </div>
+              <div  class = 'one'>
+               <a href="{{url_for('main.account')}}">Branding</a>
+              </div>
+              <div  class = 'one'>
+               <a href="{{url_for('main.account')}}">Science</a>
+              </div>
+              <div  class = 'one'>
+               <a href="{{url_for('main.account')}}">Data Structures</a>
+              </div>
+              <div  class = 'one'>
+               <a href="{{url_for('main.account')}}">Politics</a>
+              </div>
+              <div  class = 'one'>
+               <a href="{{url_for('main.account')}}">Data Science</a>
+              </div>
+              <div  class = 'one'>
+               <a href="{{url_for('main.account')}}">Python</a>
+              </div>
+            </div> 
+         </div>
+        
+         
+        
+         
+         </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+</body>
+</html>
