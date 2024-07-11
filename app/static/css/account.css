@@ -1,0 +1,163 @@
+/* General styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+h1, h4 {
+    color: #0080ff;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+small {
+    color: #7f8c8d;
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.alert {
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert .close {
+    color: #fff;
+}
+
+.alert-success {
+    background-color: #2ecc71;
+    border-color: #27ae60;
+    color: #fff;
+}
+
+hr {
+    border-top: 1px solid #bdc3c7;
+    margin: 20px 0;
+}
+
+/* Styling for the posts */
+h3 a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+h3 a:hover {
+    text-decoration: underline;
+}
+
+.posts-container {
+    margin-bottom: 40px;
+}
+
+.posts-container hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.posts-container p {
+    margin: 10px 0;
+}
+
+/* Footer styling */
+.foot {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h4 {
+        font-size: 1.2em;
+    }
+
+    .posts-container p {
+        font-size: 1em;
+    }
+}
+
+/* Additional styling for better UI */
+button.close {
+    border: none;
+    background: none;
+    font-size: 1.2em;
+}
+
+button.close:hover {
+    color: #ff6b6b;
+}
+
+.alert-dismissible .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+h1, h4 {
+    text-align: center;
+}
+
+.posts-container p {
+    font-size: 1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+.posts-container small {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.posts-container a {
+    color: #3498db;
+}
+
+.posts-container a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    color: #999;
+}

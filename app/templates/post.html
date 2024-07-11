@@ -1,22 +1,52 @@
 {% extends 'layout.html' %}
+
 {% block content %}
-
-
 <div class="container">
   <div class="content">
     <div class="head">
-      <h2>{{posts.title}}</h2>
-      <p>{{posts.content}}</p>
-      <small>{{posts.author.username}}</small>
+      <h2>{{ posts.title }}</h2>
+      <p>{{ posts.content }}</p>
+      <small>Posted by: {{ posts.author.username }}</small>
       <div>
-        <small>{{post.timestamp.strftime("%m/%d/%Y")}}</small>
+        <small>Posted on: {{ posts.timestamp.strftime("%m/%d/%Y") }}</small>
       </div>
       <div>
-        <a href="{{url_for('main.delete', post_id = posts.id)}}"><button type = 'button'class = "btn btn-large btn-danger">Delete</button></a>
+        <a href="{{ url_for('main.delete', post_id=posts.id) }}" onclick="return confirm('Are you sure you want to delete this post?');">
+          <button type="button" class="btn btn-large btn-danger">Delete</button>
+        </a>
       </div>
-     
-      <hr>
+    </div>
+    
+    <hr>
+    
+    <!-- Sample Comment Section -->
+    <div class="comments">
+      <h3>Comments</h3>
+      <div class="comment">
+        <p>This is a sample comment.</p>
+        <small>Commented by: John Doe</small>
+        <hr>
+      </div>
+      <div class="comment">
+        <p>Another sample comment here.</p>
+        <small>Commented by: Jane Smith</small>
+        <hr>
+      </div>
+      
+      <!-- Add more sample comments as needed -->
+      
+      <!-- Sample Add Comment Form (not functional) -->
+      <div class="add-comment">
+        <h3>Add a Comment</h3>
+        <form method="POST">
+          <div class="form-group">
+            <label for="comment_content" class="form-control-label">Comment Content</label>
+            <textarea id="comment_content" class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-    {% endblock %}
+{% endblock %}

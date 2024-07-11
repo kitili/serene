@@ -26,3 +26,8 @@ class EditProfile(FlaskForm):
            user = User.query.filter_by(username = field.data).all()
            if user:
             raise ValidationError('Username exists. Please choose another username')
+           
+
+class CommentForm(FlaskForm):
+    comment_content = TextAreaField('Comment', validators=[DataRequired()])
+    submit = SubmitField('Submit')

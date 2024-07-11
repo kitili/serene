@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="content">
+    <h2>All Posts</h2>
+    <hr>
+    {% for post in posts %}
+      {% if post.author != current_user %}
+        <div class="post">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.content }}</p>
+          <small>Posted by: {{ post.author.username }}</small>
+          <div>
+            <small>Posted on: {{ post.timestamp.strftime("%m/%d/%Y") }}</small>
+          </div>
+        </div>
+        <hr>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

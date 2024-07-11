@@ -41,7 +41,7 @@
           
           {% if current_user.is_authenticated %}
           <li><a href="{{url_for('main.account')}}">Account</a></li>
-          <li><a href="{{url_for('main.account')}}">read</a></li>
+          <li><a href="{{url_for('main.read')}}">read</a></li>
           <li><a href="{{url_for('main.account')}}">network</a></li>
          <li><a href="{{url_for('main.write')}}">Write</a></li>
          <li><a href="{{url_for('main.profile')}}"> <i class="fas fa-user-alt"></i> Profile</a></li>
@@ -65,6 +65,7 @@
   {% endblock %}
 
   {% block content %}
+  
   {% endblock %}
 
  

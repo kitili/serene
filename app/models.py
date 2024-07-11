@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.String(255), default = 'You bio  is empty')
     image_url = db.Column(db.String(), default =' profile.jgp')
     posts = db.relationship('Posts', backref = 'author', lazy = 'dynamic')
-    comments = db.relationship('Comments', backref = 'commentator', lazy = 'dynamic')
+    # comments = db.relationship('Comments', backref = 'commentator', lazy = 'dynamic')
 
 
 class Posts (db.Model):
@@ -35,11 +35,17 @@ class Posts (db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
-
-class Comments(db.Model):
-    __tablename__ = 'comments'
-    id = db.Column(db.Integer(), primary_key = True)
-    username = db.Column(db.String(20), nullable = False)
-    comment = db.Column(db.String(255), nullable = False)
-    user_id = db.Column(db.Integer(), db.ForeignKey('users.id'))
     
+
+
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer(), primary_key=True)
+    content = db.Column(db.Text, nullable=False)
+    timestamp = db.Column(db.DateTime(), index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer(), db.ForeignKey('users.id'))
+    post_id = db.Column(db.Integer(), db.ForeignKey('posts.id'))
+
+    def __repr__(self):
+        return f'<Comment {self.id}>'

@@ -1,44 +1,44 @@
 {% extends 'layout.html' %}
 
-
-
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/account.css')}}">
+{% endblock %}
 
 {% block content %}
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 {% for message in messages %}
-<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<div class="alert alert-success alert-dismissible" role="alert" style="margin-bottom: 20px; border-radius: 5px;">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color: #fff;"><span aria-hidden="true">&times;</span></button>
  {{message}}
 </div>
 {% endfor %}
-{% endif%}
+{% endif %}
 {% endwith %}
-<div class="container">
+<div class="container" style="margin-top: 30px;">
   <div class="row">
     <div class="col-md-7">
-      <h1>Hello {{current_user.username}},</h1>
-        <h4>Quote of the day</h4>
-      <p>'{{quotes.quote}}'</p>
-      <small>By:{{quotes.author}}</small>
-      <hr>
-      <h1 class = 'text-center'>Topics For you</h1>
-      {% for post in posts %}
-      <h3><a href="{{url_for('main.post', post_id =post.id ) }}">{{post.title}}</a></h3>
-      <p>{{post.content}}</p>
-      <small>{{post.author.username}}...</small>
-      <small>from your network</small><br>
-      <small>{{post.timestamp}}</small>
-      <p><a href="">Comment</a></p>
-      
-      <hr>
-
-      {% endfor %}
+      <h1 style="color: #34495e; font-size: 2.5em; margin-bottom: 20px; font-weight: 300;">Hello {{current_user.username}},</h1>
+      <h4 style="color: #34495e; font-size: 1.5em; margin-top: 20px; font-weight: 300;">Quote of the day</h4>
+      <p style="font-size: 1.1em; line-height: 1.6; margin-bottom: 15px;">'{{quotes.quote}}'</p>
+      <small style="color: #7f8c8d;">By: {{quotes.author}}</small>
+      <hr style="border-top: 1px solid #bdc3c7; margin: 20px 0;">
+      <h1 class='text-center' style="color: #3498db; margin-bottom: 20px;">Topics For you</h1>
+      <div class="posts-container" style="margin-bottom: 40px;">
+        {% for post in posts %}
+        <h3><a href="{{url_for('main.post', post_id=post.id)}}" style="color: #2980b9; text-decoration: none; font-weight: 500;">{{post.title}}</a></h3>
+        <p style="font-size: 1em; color: #666; margin: 10px 0;">{{post.content}}</p>
+        <small style="color: #7f8c8d; display: inline-block; margin-right: 15px;">{{post.author.username}}...</small>
+        <small style="color: #7f8c8d;">from your network</small><br>
+        <small style="color: #7f8c8d;">{{post.timestamp}}</small>
+        <p><a href="" style="color: #3498db;">Comment</a></p>
+        <hr style="border-top: 1px solid #bdc3c7; margin-top: 10px; margin-bottom: 10px;">
+        {% endfor %}
+      </div>
     </div>
     <div class="col-md-5">
-      <hr>
-      <div class="foot">
-
+      <div class="foot" style="background-color: #ecf0f1; padding: 20px; border-radius: 5px; margin-top: 20px;">
+        <!-- Add footer content here -->
       </div>
     </div>
   </div>
